@@ -57,7 +57,7 @@ spotless {
 		// Choose one of these formatters.
 		eclipse().configProperties("""
 		org.eclipse.jdt.core.formatter.tabulation.char=space
-		org.eclipse.jdt.core.formatter.alignment_for_record_components=81
+		org.eclipse.jdt.core.formatter.alignment_for_record_components=49
 		org.eclipse.jdt.core.formatter.parentheses_positions_in_record_declaration=separate_lines_if_wrapped
 		""")
 
