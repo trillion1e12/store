@@ -54,34 +54,8 @@ spotless {
 		// Cleanthat will refactor your code, but it may break your style: apply it before your formatter
 		cleanthat()
 
-		// XML from https://github.com/trillion1e12/eclipse-format
-		eclipse().sortMembersEnabled(true)
-			.configProperties(
-				"""
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_for_statment=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_enum_constant_declaration=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.alignment_for_record_components=49
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_catch_clause=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.alignment_for_arguments_in_explicit_constructor_call=48
-				org.eclipse.jdt.core.formatter.alignment_for_parameters_in_constructor_declaration=48
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_annotation=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.alignment_for_arguments_in_allocation_expression=48
-				org.eclipse.jdt.core.formatter.alignment_for_selector_in_method_invocation=48
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_method_delcaration=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_method_invocation=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_record_declaration=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_switch_statement=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.alignment_for_enum_constants=48
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_if_while_statement=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.alignment_for_arguments_in_method_invocation=48
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_try_clause=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.alignment_for_arguments_in_qualified_allocation_expression=48
-				org.eclipse.jdt.core.formatter.alignment_for_parameters_in_method_declaration=48
-				org.eclipse.jdt.core.formatter.parentheses_positions_in_lambda_declaration=separate_lines_if_wrapped
-				org.eclipse.jdt.core.formatter.tabulation.char=space
-				"""
-			)
-
+		// XML from https://github.com/trillion1e12/eclipse-format/blob/main/eclipse-modified.xml
+		eclipse().configFile('eclipse-formatter.xml').sortMembersEnabled(true)
 
 		tableTestFormatter()
 		formatAnnotations()
