@@ -1,15 +1,17 @@
 package com.example.store.product;
 
 import com.example.store.product.dto.ProductResponse;
-
 import java.util.List;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
+    private final Logger logger = LoggerFactory.getLogger(ProductService.class);
 
     public ProductService(ProductRepository productRepository, ProductMapper productMapper) {
         this.productRepository = productRepository;
@@ -17,14 +19,18 @@ public class ProductService {
     }
 
     public ProductResponse getProduct(UUID id) {
+        logger.info("Getting product with id %s".formatted(id));
         Product product = productRepository.findById(id).orElseThrow();
         ProductResponse productResponse = productMapper.toResponse(product);
+        logger.info("Found product");
         return productResponse;
     }
 
     public List<ProductResponse> getProducts() {
+        logger.info("Getting all products");
         List<Product> products = productRepository.findAll();
         List<ProductResponse> productResponses = products.stream().map(productMapper::toResponse).toList();
+        logger.info("Found %d products".formatted(products.size()));
         return productResponses;
     }
 }
