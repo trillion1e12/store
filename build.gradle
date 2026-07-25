@@ -52,17 +52,17 @@ spotless {
 		forbidModuleImports()
 
 		// Cleanthat will refactor your code, but it may break your style: apply it before your formatter
-		cleanthat()          // has its own section below
+		cleanthat()
 
 		// Choose one of these formatters.
-		googleJavaFormat()   // has its own section below
-		// eclipse()            // has its own section below
-		// prettier()           // has its own section below
-		// clangFormat()        // has its own section below
-		// idea()               // has its own section below
+		eclipse().configProperties("""
+		org.eclipse.jdt.core.formatter.tabulation.char=space
+		org.eclipse.jdt.core.formatter.alignment_for_record_components=81
+		org.eclipse.jdt.core.formatter.parentheses_positions_in_record_declaration=separate_lines_if_wrapped
+		""")
 
 		tableTestFormatter()
-
 		formatAnnotations()
+		endWithNewline()
 	}
 }
