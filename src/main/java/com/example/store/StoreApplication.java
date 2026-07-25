@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class StoreApplication {
-    // test commit
+
     public static void main(String[] args) {
         SpringApplication.run(StoreApplication.class, args);
     }
