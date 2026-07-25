@@ -54,12 +54,8 @@ spotless {
 		// Cleanthat will refactor your code, but it may break your style: apply it before your formatter
 		cleanthat()
 
-		// Choose one of these formatters.
-		eclipse().configProperties("""
-		org.eclipse.jdt.core.formatter.tabulation.char=space
-		org.eclipse.jdt.core.formatter.alignment_for_record_components=49
-		org.eclipse.jdt.core.formatter.parentheses_positions_in_record_declaration=separate_lines_if_wrapped
-		""")
+		// XML from https://github.com/trillion1e12/eclipse-format
+		eclipse().configFile('eclipse-formatter.xml')
 
 		tableTestFormatter()
 		formatAnnotations()
