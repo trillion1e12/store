@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.example.store.exception.NotFoundException;
 import com.example.store.product.dto.CreateProductRequest;
 import com.example.store.product.dto.ProductResponse;
 
@@ -35,7 +36,10 @@ public class ProductService {
     public ProductResponse getProduct(UUID id) {
         logger.info("Getting product with id %s".formatted(id));
 
-        Product product = productRepository.findById(id).orElseThrow();
+        Product product = productRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("User %s not found".formatted(id)));
+
         ProductResponse productResponse = productMapper.toResponse(product);
 
         logger.info("Found product");
