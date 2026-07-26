@@ -16,8 +16,7 @@ public class Product {
     private Integer price;
     private Integer quantity;
 
-    public Product() {
-    }
+    public Product() {}
 
     public UUID getId() {
         return id;

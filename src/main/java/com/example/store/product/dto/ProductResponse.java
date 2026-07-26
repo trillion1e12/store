@@ -7,5 +7,4 @@ public record ProductResponse(
         String name,
         Integer price,
         Integer quantity
-) {
-}
+) {}
