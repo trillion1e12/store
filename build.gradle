@@ -46,19 +46,15 @@ spotless {
 	}
 	java {
 		// Use the default importOrder configuration
-		importOrder()
+		importOrder('java|javax', '', group)
 		removeUnusedImports()
 		forbidWildcardImports()
 		forbidModuleImports()
 
-		// Cleanthat will refactor your code, but it may break your style: apply it before your formatter
-		cleanthat()
-
 		// XML from https://github.com/trillion1e12/eclipse-format/blob/main/eclipse-modified.xml
 		eclipse().configFile('eclipse-formatter.xml').sortMembersEnabled(true)
 
-		tableTestFormatter()
-		formatAnnotations()
+		// formatAnnotations()	// this make validation same line (bad)
 		endWithNewline()
 	}
 }

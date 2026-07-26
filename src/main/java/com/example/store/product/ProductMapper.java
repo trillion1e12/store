@@ -1,8 +1,9 @@
 package com.example.store.product;
 
+import org.springframework.stereotype.Component;
+
 import com.example.store.product.dto.CreateProductRequest;
 import com.example.store.product.dto.ProductResponse;
-import org.springframework.stereotype.Component;
 
 @Component
 public class ProductMapper {
