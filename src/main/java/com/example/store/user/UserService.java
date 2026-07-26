@@ -25,7 +25,7 @@ public class UserService {
         List<User> users = userRepository.findAll();
         List<UserResponse> responses = users.stream().map(userMapper::toResponse).toList();
 
-        logger.info("Found %d users".formatted(users.size()));
+        logger.info("Found {} users", users.size());
         return responses;
     }
 }

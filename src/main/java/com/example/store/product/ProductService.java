@@ -28,17 +28,18 @@ public class ProductService {
         Product product = productMapper.toEntity(request);
         Product createdProduct = productRepository.save(product);
 
-        logger.info("Created a product with id %s".formatted(createdProduct.getId()));
+        logger.info("Created a product with id {}", createdProduct.getId());
         ProductResponse response = productMapper.toResponse(createdProduct);
         return response;
     }
 
     public ProductResponse getProduct(UUID id) {
-        logger.info("Getting product with id %s".formatted(id));
+        logger.info("Getting product with id {}", id);
 
         Product product = productRepository
                 .findById(id)
-                .orElseThrow(() -> new NotFoundException("User %s not found".formatted(id)));
+                .orElseThrow(() -> new NotFoundException("Product {} not found".formatted(id)));
+        // ResponseStatusException wont need exception handler
 
         ProductResponse productResponse = productMapper.toResponse(product);
 
@@ -52,7 +53,7 @@ public class ProductService {
         List<Product> products = productRepository.findAll();
         List<ProductResponse> productResponses = products.stream().map(productMapper::toResponse).toList();
 
-        logger.info("Found %d products".formatted(products.size()));
+        logger.info("Found {} products", products.size());
         return productResponses;
     }
 }
