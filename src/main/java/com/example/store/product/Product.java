@@ -6,8 +6,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -15,8 +17,6 @@ public class Product {
     private String name;
     private Integer price;
     private Integer quantity;
-
-    public Product() {}
 
     public UUID getId() {
         return id;
@@ -49,5 +49,4 @@ public class Product {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-
 }
