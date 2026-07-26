@@ -1,8 +1,12 @@
 package com.example.store.product.dto;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public record CreateProductRequest(
-        String name,
-        Integer price,
-        Integer quantity
+        @NotBlank String name,
+        @NotNull @Min(0) Integer price,
+        @NotNull @Min(0) Integer quantity
 ) {
 }

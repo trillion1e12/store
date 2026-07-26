@@ -1,5 +1,6 @@
 package com.example.store.product;
 
+import com.example.store.product.dto.CreateProductRequest;
 import com.example.store.product.dto.ProductResponse;
 import java.util.List;
 import java.util.UUID;
@@ -18,18 +19,33 @@ public class ProductService {
         this.productMapper = productMapper;
     }
 
+    public ProductResponse createProduct(CreateProductRequest request) {
+        logger.info("Creating product");
+
+        Product product = productMapper.toEntity(request);
+        Product createdProduct = productRepository.save(product);
+
+        logger.info("Created a product with id %s".formatted(createdProduct.getId()));
+        ProductResponse response = productMapper.toResponse(createdProduct);
+        return response;
+    }
+
     public ProductResponse getProduct(UUID id) {
         logger.info("Getting product with id %s".formatted(id));
+
         Product product = productRepository.findById(id).orElseThrow();
         ProductResponse productResponse = productMapper.toResponse(product);
+
         logger.info("Found product");
         return productResponse;
     }
 
     public List<ProductResponse> getProducts() {
         logger.info("Getting all products");
+
         List<Product> products = productRepository.findAll();
         List<ProductResponse> productResponses = products.stream().map(productMapper::toResponse).toList();
+
         logger.info("Found %d products".formatted(products.size()));
         return productResponses;
     }
