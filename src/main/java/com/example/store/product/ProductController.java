@@ -17,6 +17,7 @@ import com.example.store.product.dto.ProductResponse;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     private final ProductService productService;
 
     public ProductController(ProductService productService) {

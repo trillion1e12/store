@@ -11,6 +11,7 @@ import com.example.store.user.dto.UserResponse;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -21,4 +22,5 @@ public class UserController {
     public List<UserResponse> getMethodName() {
         return userService.getUsers();
     }
+
 }

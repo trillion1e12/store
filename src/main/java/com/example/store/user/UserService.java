@@ -10,8 +10,11 @@ import com.example.store.user.dto.UserResponse;
 
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
+
     private final UserMapper userMapper;
+
     private final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public UserService(UserRepository userRepository, UserMapper userMapper) {
@@ -28,4 +31,5 @@ public class UserService {
         logger.info("Found {} users", users.size());
         return responses;
     }
+
 }

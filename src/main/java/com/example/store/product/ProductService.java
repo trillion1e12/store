@@ -13,8 +13,11 @@ import com.example.store.product.dto.ProductResponse;
 
 @Service
 public class ProductService {
+
     private final ProductRepository productRepository;
+
     private final ProductMapper productMapper;
+
     private final Logger logger = LoggerFactory.getLogger(ProductService.class);
 
     public ProductService(ProductRepository productRepository, ProductMapper productMapper) {
@@ -56,4 +59,5 @@ public class ProductService {
         logger.info("Found {} products", products.size());
         return productResponses;
     }
+
 }

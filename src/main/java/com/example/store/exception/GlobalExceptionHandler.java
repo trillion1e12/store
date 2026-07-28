@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+
     // ResponseEntityExceptionHandler: format json like problem details for
     // exceptions like failed validation
     private final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
