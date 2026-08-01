@@ -26,8 +26,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             MethodArgumentNotValidException ex,
             HttpHeaders headers,
             HttpStatusCode status,
-            WebRequest request
-    ) {
+            WebRequest request) {
         logger.error(ex.getMessage());
         return super.handleMethodArgumentNotValid(ex, headers, status, request);
     }
@@ -36,8 +35,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ProblemDetail handleNotFound(NotFoundException exception) {
         String message = exception.getMessage();
         logger.error(message);
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, message);
+        ProblemDetail problemDetail =
+                ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, message);
         return problemDetail;
     }
-
 }

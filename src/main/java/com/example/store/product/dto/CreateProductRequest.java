@@ -7,5 +7,5 @@ import jakarta.validation.constraints.NotNull;
 public record CreateProductRequest(
         @NotBlank String name,
         @NotNull @Min(0) Integer price,
-        @NotNull @Min(0) Integer quantity
-) {}
+        @NotNull @Min(0) Integer quantity,
+        @NotNull @Min(0) Integer quantity2) {}

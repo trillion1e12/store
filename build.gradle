@@ -39,23 +39,9 @@ tasks.named('test') {
 }
 
 spotless {
-	format 'misc', {
-		target '*.gradle', '.gitattributes', '.gitignore'
-		trimTrailingWhitespace()
-		leadingSpacesToTabs()
-		endWithNewline()
-	}
 	java {
-		// Use the default importOrder configuration
-		importOrder('java|javax', '', group)
+		googleJavaFormat().aosp().reflowLongStrings()
 		removeUnusedImports()
-		forbidWildcardImports()
-		forbidModuleImports()
-
-		// XML from https://github.com/trillion1e12/eclipse-format/blob/main/eclipse-modified.xml
-		eclipse().configFile('eclipse-formatter.xml').sortMembersEnabled(true)
-
-		// formatAnnotations()	// this make validation same line (bad)
-		endWithNewline()
+		importOrder('java|javax', '', group)
 	}
 }

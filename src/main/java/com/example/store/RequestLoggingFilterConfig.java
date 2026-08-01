@@ -17,5 +17,4 @@ public class RequestLoggingFilterConfig {
 
         return filter;
     }
-
 }

@@ -22,5 +22,4 @@ public class UserController {
     public List<UserResponse> getMethodName() {
         return userService.getUsers();
     }
-
 }

@@ -31,5 +31,4 @@ public class UserService {
         logger.info("Found {} users", users.size());
         return responses;
     }
-
 }

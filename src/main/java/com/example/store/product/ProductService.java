@@ -39,9 +39,11 @@ public class ProductService {
     public ProductResponse getProduct(UUID id) {
         logger.info("Getting product with id {}", id);
 
-        Product product = productRepository
-                .findById(id)
-                .orElseThrow(() -> new NotFoundException("Product {} not found".formatted(id)));
+        Product product =
+                productRepository
+                        .findById(id)
+                        .orElseThrow(
+                                () -> new NotFoundException("Product %s not found".formatted(id)));
         // ResponseStatusException wont need exception handler
 
         ProductResponse productResponse = productMapper.toResponse(product);
@@ -54,10 +56,10 @@ public class ProductService {
         logger.info("Getting all products");
 
         List<Product> products = productRepository.findAll();
-        List<ProductResponse> productResponses = products.stream().map(productMapper::toResponse).toList();
+        List<ProductResponse> productResponses =
+                products.stream().map(productMapper::toResponse).toList();
 
         logger.info("Found {} products", products.size());
         return productResponses;
     }
-
 }
