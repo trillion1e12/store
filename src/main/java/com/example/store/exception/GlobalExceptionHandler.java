@@ -35,8 +35,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     public ProblemDetail handleNotFound(NotFoundException exception) {
         String message = exception.getMessage();
         logger.error(message);
-        ProblemDetail problemDetail =
-                ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, message);
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, message);
         return problemDetail;
     }
 }
