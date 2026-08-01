@@ -40,8 +40,9 @@ tasks.named('test') {
 
 spotless {
 	java {
-		googleJavaFormat().aosp().reflowLongStrings()
+		eclipse().configFile('spotless-2.1.xml').sortMembersEnabled(true)
 		removeUnusedImports()
 		importOrder('java|javax', '', group)
+		endWithNewline()
 	}
 }
