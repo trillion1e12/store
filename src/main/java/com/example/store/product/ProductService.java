@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.store.exception.NotFoundException;
+import com.example.store.exception.ProductNotFoundException;
 import com.example.store.product.dto.CreateProductRequest;
 import com.example.store.product.dto.ProductResponse;
 
@@ -41,7 +41,7 @@ public class ProductService {
 
         Product product = productRepository
                 .findById(id)
-                .orElseThrow(() -> new NotFoundException("Product %s not found".formatted(id)));
+                .orElseThrow(() -> new ProductNotFoundException("Product %s not found".formatted(id)));
         // ResponseStatusException wont need exception handler
 
         ProductResponse productResponse = productMapper.toResponse(product);

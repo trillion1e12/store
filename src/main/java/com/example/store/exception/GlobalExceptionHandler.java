@@ -31,8 +31,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return super.handleMethodArgumentNotValid(ex, headers, status, request);
     }
 
-    @ExceptionHandler(NotFoundException.class)
-    public ProblemDetail handleNotFound(NotFoundException exception) {
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ProblemDetail handleNotFound(ProductNotFoundException exception) {
         String message = exception.getMessage();
         logger.error(message);
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, message);
