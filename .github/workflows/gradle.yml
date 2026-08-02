@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v5
         with:
           java-version: 21
-          distribution: termurin
+          distribution: temurin
       
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
